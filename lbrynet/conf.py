@@ -213,6 +213,8 @@ FIXED_SETTINGS = {
         'USD': {'type': 'fiat'},
     },
     'DB_REVISION_FILE_NAME': 'db_revision',
+    'DEFAULT_PEER_PORT': 3333,
+    'DEFAULT_DHT_NODE_PORT': 4444,
     'ICON_PATH': ICON_PATH,
     'LOGGLY_TOKEN': 'BQEzZmMzLJHgAGxkBF00LGD0YGuyATVgAmqxAQEuAQZ2BQH4',
     'LOG_FILE_NAME': 'lbrynet.log',
@@ -246,7 +248,6 @@ ADJUSTABLE_SETTINGS = {
     'data_dir': (str, default_data_dir),
     'data_rate': (float, .0001),  # points/megabyte
     'delete_blobs_on_remove': (bool, True),
-    'dht_node_port': (int, 4444),
     'download_directory': (str, default_download_dir),
     'download_timeout': (int, 180),
     'is_generous_host': (bool, True),
@@ -262,7 +263,6 @@ ADJUSTABLE_SETTINGS = {
     'min_info_rate': (float, .02),  # points/1000 infos
     'min_valuable_hash_rate': (float, .05),  # points/1000 infos
     'min_valuable_info_rate': (float, .05),  # points/1000 infos
-    'peer_port': (int, 3333),
     'pointtrader_server': (str, 'http://127.0.0.1:2424'),
     'reflector_port': (int, 5566),
     # if reflect_uploads is True, reflect files on publish

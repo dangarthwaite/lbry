@@ -187,9 +187,13 @@ class Daemon(AuthJSONRPCServer):
         self.run_reflector_server = conf.settings['run_reflector_server']
         self.wallet_type = conf.settings['wallet']
         self.delete_blobs_on_remove = conf.settings['delete_blobs_on_remove']
-        self.peer_port = conf.settings['peer_port']
+        self.peer_port = None
+        if 'peer_port' in conf.settings:
+            self.peer_port = conf.settings['peer_port']
         self.reflector_port = conf.settings['reflector_port']
-        self.dht_node_port = conf.settings['dht_node_port']
+        self.dht_node_port = None
+        if 'dht_node_port' in conf.settings:
+            self.dht_node_port = conf.settings['dht_node_port']
         self.use_upnp = conf.settings['use_upnp']
 
         self.startup_status = STARTUP_STAGES[0]
