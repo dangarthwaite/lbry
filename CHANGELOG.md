@@ -22,6 +22,7 @@ at anytime.
 
 ### Changed
   * Check claim schema in `publish` before trying to make the claim, return better error messages
+  * API commands file_list, file_delete, and file_reflect no longer deals with claim information
   *
 
 ### Added
@@ -54,7 +55,6 @@ at anytime.
 ### Removed
  * Removed some alternate methods of reading from blob files
  * Removed `@AuthJSONRPCServer.queued` decorator
-
 
 ## [0.17.1] - 2017-10-25
 ### Fixed
