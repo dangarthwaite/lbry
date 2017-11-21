@@ -1742,6 +1742,39 @@ class Daemon(AuthJSONRPCServer):
 
     @AuthJSONRPCServer.auth_required
     @defer.inlineCallbacks
+    def jsonrpc_channel_export(self, claim_id):
+        """
+        Export serialized channel signing information for a given certificate claim id
+
+        Usage:
+            channel_export (<claim_id> | --claim_id=<claim_id>)
+
+        Returns:
+            (str) Serialized certificate information
+        """
+
+        result = yield self.session.wallet.export_certificate_info(claim_id)
+        defer.returnValue(result)
+
+    @AuthJSONRPCServer.auth_required
+    @defer.inlineCallbacks
+    def jsonrpc_channel_import(self, serialized_certificate_info):
+        """
+        Import serialized channel signing information (to allow signing new claims to the channel)
+
+        Usage:
+            channel_import (<serialized_certificate_info> |
+                            --serialized_certificate_info=<serialized_certificate_info>)
+
+        Returns:
+            (dict) Result dictionary
+        """
+
+        result = yield self.session.wallet.import_certificate_info(serialized_certificate_info)
+        defer.returnValue(result)
+
+    @AuthJSONRPCServer.auth_required
+    @defer.inlineCallbacks
     def jsonrpc_channel_list_mine(self):
         """
         Get my channels
