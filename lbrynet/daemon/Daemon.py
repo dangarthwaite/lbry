@@ -1775,12 +1775,12 @@ class Daemon(AuthJSONRPCServer):
 
     @AuthJSONRPCServer.auth_required
     @defer.inlineCallbacks
-    def jsonrpc_channel_list_mine(self):
+    def jsonrpc_channel_list(self):
         """
-        Get my channels
+        Get certificate claim infos for channels that can be published to
 
         Usage:
-            channel_list_mine
+            channel_list
 
         Returns:
             (list) ClaimDict
